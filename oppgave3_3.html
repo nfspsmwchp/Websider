@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 3</title>
+<script>
+	
+
+function summer(tall1, tall2) {
+	return (tall1+tall2)
+}
+
+var Calculator = {
+  average: function() {
+    var num = 0,length=arguments.length;
+    if(!length) return 0;
+    for (var i = 0; i < length; i++) 
+            num = num + arguments[i];
+    var divide = num/length;
+    return divide;
+ }
+};
+
+function minsteTall(tall1,tall2) {
+	
+	if(tall1 > tall2) {
+		return tall1;
+	}
+	else {
+		return tall2;
+	}
+}
+
+function finnMinste(arr) {
+	var minste = arr[0];
+	for(var i=1;i<arr.length;i++) {
+		if(arr[i] < minste) {
+			minste = arr[i];
+		}
+	}
+	return minste;
+
+}
+
+var dataset = [2,2,4,2,6,4,7,8];
+
+function findOccurrences(arr, val) {
+    var i, j,
+        count = 0;
+    for (i = 0, j = arr.length; i < j; i++) {
+        (arr[i] === val) && count++;
+    }
+    return count;
+}
+		
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+	document.getElementById("knapp2").onclick = doit2;
+
+}
+
+
+function doit2() {
+
+
+	var svar = minsteTall(5, 8);
+	document.getElementById("utskrift").innerHTML = "Det største tallet er " + svar
+	var sum = summer(4, 7);
+	document.getElementById("utskrift2").innerHTML = "Summen er " + sum
+	document.getElementById("utskrift3").innerHTML = "Gjennomsnittet er " + Calculator.average(3,4,5);
+	var ant = findOccurrences;
+	document.getElementById("utskrift4").innerHTML = "Tallet finnes " + (findOccurrences(dataset, 2)) + " ganger i arrayen"
+}
+
+
+
+	
+	
+</script>
+
+<style>
+</style>
+</head>
+<body>
+	
+   <h1>Oppgave 3</h1>
+   <p>Vi kan også lage funksjoner som arbeider med arrayer (tar en array som parameter). Lag <br>
+		følgende 4 funksjoner som arbeider med arrayer av tall, som returnerer følgende: <br>
+		1. Finner største tallet i arrayen <br>
+		2. Finner summen av arrayen <br>
+		3. Finner gjennomsnittet av arrayen (kan denne benytte funksjon 2) <br> 
+		4. Finner ut om ett bestemt tall (angies som parameter) er i arrayen eller ikke <br> <br>
+		Vis også hvordan dere bruker funksjonene i noen små eksempler (her velger dere selv). <br>
+		Husk å være nøye med å velge fornuftige formater på returverdiene og hvilke parametre <br>
+		funksjonen skal ta inn </p> 
+  <button id="knapp2" type="button">Kjør</button>
+   <p>Trykk på knappen for å kjøre funksjonene</p>
+   <p id="utskrift"></p>
+   <p id="utskrift2"></p>
+   <p id="utskrift3"></p>
+   <p id="utskrift4"></p>
+</body>
+</html>
+
+

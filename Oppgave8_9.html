@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+         <meta charset="UTF-8">
+         <title>Murats webside</title>
+		 <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+		 <link rel="stylesheet" type="text/css" href="style2.css"/> 
+</head>
+
+
+<body>
+		<center><h1>Arbeidskrav 1<h1><center>
+		<h6> Navn: Murat Demirel <br>
+		     Klasse: Informasjonssystemer <br>
+		     Trinn: 1. Første <h6>
+	
+<p>Oppgave 8</p>
+	<form name="formbmi">
+	Vekten din(kg): <input type="text" name="vekt" size="10"><br />
+	Høyden din(cm): <input type="text" name="høyde" size="10"><br />
+	<input type="button" value="Kalkuler BMI" onClick="calculateBmi()"><br />
+	Din BMI: <input type="text" name="bmi" size="10"><br />
+	Dette betyr at: <input type="text" name="meaning" size="25"><br />
+	<input type="reset" value="Reset alt" />
+	</form>
+
+<p>Oppgave 9</p>
+	Trykk på feltet: <input type="text" onfocus="minFunction(this)">
+	<p>Da input feltet blir fokusert, blir en funksjon aktivert som bytter bakgrunnsfargen til lyseblå</p>
+
+<script>
+
+function calculateBmi() {
+	var vekt = document.formbmi.vekt.value
+	var høyde = document.formbmi.høyde.value
+		
+		if(vekt > 0 && høyde > 0){	
+	
+	var finalBmi = vekt/(høyde/100*høyde/100)
+		document.formbmi.bmi.value = finalBmi
+	
+		if(finalBmi < 18.5){
+		document.formbmi.meaning.value = "du er alt for tynn"
+
+}
+		if(finalBmi > 18.5 && finalBmi < 25){
+		document.formbmi.meaning.value = "du har normal vekt"
+
+}
+		if(finalBmi > 25){
+		document.formbmi.meaning.value = "du er overvektig"
+}
+
+}
+	else{
+		alert("Begge feltene må fylles")
+}
+
+}
+</script>
+
+
+<script>
+	function minFunction(x) {
+		x.style.background = "#DBFAFF";
+}
+</script>
+
+
+</body>
+
+</html>
+
+
+		

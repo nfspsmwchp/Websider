@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<title>Oppgave 4</title>
+
+<style>
+.letters {position:absolute;left: 0px; top: 0px; border: 2px; border-style: double; margin: 5px; padding: 5px; color:#000000; background-color:#FFFFFF; font-family:"Courier New", Courier, monospace;}
+.blanks {position:absolute;left: 0px; top: 0px; border:none; margin: 5px; padding: 5px; color:#006; background-color:white; font-family:"Courier New", Courier, monospace; text-decoration:underline; color: black; font-size: 20px;}
+</style>
+
+
+<script>
+
+    var ord = ["prosessor", "skjermkort", "kabler", "hovedkort", "lydkort", "minnepenn", "mus", "tastatur", "programvare", "skriver", "strømforsyning", "webkamera",
+           "vifte", "kabinett", "høytaller", "minnebrikke"]  
+    
+    var ctx;
+	var tingelement;
+	var alfabet = "abcdefghijklmnopqrstuvwxyzæøå";
+    var alfabety = 300;
+	var alfabetx = 20;
+	var alfabetwidth = 25;
+	var skjult;
+	var gjettabokstaver = 0;
+	var skjultx = 160;
+	var skjulty = 50;
+	var skjultwidth = 50;
+	var stativfarge = "#000000";
+	var hodefarge = "blue";
+	var kroppfarge = "blue";
+	var taufarge = "#000000";
+	var kroppcenterx = 96;
+	var trinn = [tegnstativ, tegnhode, tegnkropp, tegnhøyrearm, tegnvenstrearm, tegnhøyrebein, tegnvenstrebein, tegntau];
+	var cur = 0;
+     
+function tegnstativ() {                             
+	ctx.lineWidth = 6;
+	ctx.strokeStyle = stativfarge;
+	ctx.beginPath();
+	ctx.moveTo(40,180);
+	ctx.lineTo(20,150);                                                //Her tegnes stativ
+	ctx.moveTo(20,180);
+	ctx.lineTo(20,40);
+	ctx.moveTo(5,40);
+	ctx.lineTo(100,40);
+    ctx.moveTo(0,180);
+	ctx.lineTo(20,150);
+    ctx.moveTo(20,65);
+	ctx.lineTo(40,40);
+	ctx.stroke();
+	ctx.closePath();
+}
+    
+function tegnhode() {
+	ctx.lineWidth = 5;
+	ctx.strokeStyle = hodefarge;
+	ctx.save();  
+	ctx.scale(.6,1);
+	ctx.beginPath();                                                 //Her tegnes hode
+	ctx.arc (kroppcenterx/.6,80,13,0,Math.PI*2,false);
+	ctx.stroke();
+	ctx.closePath();
+	ctx.restore();
+}
+
+function tegnkropp() {
+	ctx.strokeStyle = kroppfarge;
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx,90);                                     //Her tegnes kroppen
+	ctx.lineTo(kroppcenterx,125);
+	ctx.stroke();
+	ctx.closePath();	
+}
+    
+function tegnhøyrearm() {
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx,100);
+	ctx.lineTo(kroppcenterx+25,110);                                 //Her tegnes høyrearmen
+    ctx.stroke();
+	ctx.closePath();
+}
+    
+function tegnvenstrearm() {
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx,100);
+	ctx.lineTo(kroppcenterx-25,110);                                //Her tegnes venstrearm
+    ctx.stroke();
+	ctx.closePath();
+	
+}
+    
+function tegnhøyrebein() {
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx,125);
+	ctx.lineTo(kroppcenterx+20,155);                               //Her tegnes høyrebein
+    ctx.stroke();
+	ctx.closePath();	
+}
+
+function tegnvenstrebein() {
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx,125);
+	ctx.lineTo(kroppcenterx-20,155);                               //Her tegnes venstrebein
+    ctx.stroke();
+	ctx.closePath();
+}
+    
+function tegntau() {
+    ctx.lineWidth = 3;
+	ctx.strokeStyle = taufarge;
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx-0,40);
+	ctx.lineTo(kroppcenterx-0,70);                                 //Her tegnes tauet
+	ctx.stroke();
+	ctx.closePath();
+	ctx.save();
+	ctx.scale(1,.3);
+	ctx.beginPath();
+	ctx.stroke();
+	ctx.closePath();
+	ctx.restore();
+	tegnnakken();
+	tegnhode();
+}
+    
+function tegnnakken() {
+	ctx.strokeStyle=kroppfarge;
+	ctx.beginPath();
+	ctx.moveTo(kroppcenterx,90);                                  //Her tegnes nakken
+	ctx.lineTo(kroppcenterx,95);
+	ctx.stroke();
+	ctx.closePath();
+}
+    
+function init() {
+    ctx = document.getElementById('canvas').getContext('2d'); 
+    spillsetup();
+    ctx.font= "bold 20pt Ariel";
+}
+    
+function removeblanksfromword(ord) {
+	var strippedword = ord.replace(/^\s+|\s+$/g, '') ;
+	return (strippedword);
+}
+
+function spillsetup() {
+	var i;
+	var x;
+	var y;
+	var uniqueid;
+	var an = alfabet.length;
+	for(i=0;i<an;i++) {
+		
+		uniqueid = "a"+String(i);
+		d = document.createElement('alfabet');
+    	d.innerHTML = (
+	      "<div class='letters' id='"+uniqueid+"'>"+alfabet[i]+"</div>");
+		document.body.appendChild(d);	  
+		tingelement = document.getElementById(uniqueid);
+		x = alfabetx + alfabetwidth*i;
+		y = alfabety;
+		tingelement.style.top = String(y)+"px";
+		tingelement.style.left = String(x)+"px";
+		tingelement.addEventListener('click',velgelement,false);
+	}
+    
+	var ch = Math.floor(Math.random()* ord.length);
+	skjult = removeblanksfromword(ord[ch]);
+	for (i=0;i<skjult.length;i++) {
+		uniqueid = "s"+String(i);
+		d = document.createElement("skjult");
+    	d.innerHTML = (
+	      "<div class='blanks' id='"+uniqueid+"'> __ </div>");
+		document.body.appendChild(d);	  
+		tingelement = document.getElementById(uniqueid);
+		x = skjultx + skjultwidth*i;
+		y = skjulty;
+		tingelement.style.top = String(y)+"px";
+		tingelement.style.left = String(x)+"px";
+		
+	}
+	trinn[cur]();
+	cur++;
+	return false;
+}
+
+ function velgelement(ev) {
+    var not = true;
+    var picked = this.textContent; 
+	var i;
+	var j;
+	var uniqueid;
+	var tingelement;
+	var out;
+	for (i=0;i<skjult.length;i++) {
+		if (picked==skjult[i]) {
+			id = "s"+String(i);
+			document.getElementById(id).textContent = picked;
+			not = false;
+			gjettabokstaver++;
+			if (gjettabokstaver==skjult.length) {
+			  ctx.fillStyle=stativfarge;
+					out = "Du overlevde, gratulerer :)";
+					ctx.fillText(out,200,80);
+					ctx.fillText("Oppdater siden for å prøve igjen.",200,120);
+			 		 for (j=0;j<alfabet.length;j++) {
+				 		 uniqueid = "a"+String(j);
+				 		 tingelement = document.getElementById(uniqueid);
+	  		    		tingelement.removeEventListener('click',velgelement,false);
+			  		}
+			  }
+			   			
+		}
+}
+
+	if (not) {
+		trinn[cur]();
+		cur++;
+		if (cur>=trinn.length) {
+		
+		for (i=0;i<skjult.length;i++) {
+			id = "s"+String(i);
+			document.getElementById(id).textContent = skjult[i];
+		}
+		ctx.fillStyle=stativfarge;
+					out = "game over :(";
+					ctx.fillText(out,200,80);
+					ctx.fillText("Oppdater siden for å prøve igjen.",200,120);
+			 		 for (j=0;j<alfabet.length;j++) {
+				 		 uniqueid = "a"+String(j);
+				 		 tingelement = document.getElementById(uniqueid);
+	  		    		tingelement.removeEventListener('click',velgelement,false);
+			  		}
+	
+		}
+		
+	}
+	var id = this.id;
+	document.getElementById(id).style.display = "none";
+ }
+
+
+</script>
+
+
+</head>
+
+<body>
+<body onLoad="init();">  
+<h1>Oppgave 4</h1><br/>
+<canvas id="canvas" width="800" height="400">
+</canvas>
+<p>Tips: Temaet i hangman-spillet er Datautstyr (sjekk arrayen for å se ordene som er brukt)</p>
+<p><b>Du skal lage et hangman-spill ved å benytte canvas.
+MERK: En del av oppgaven er å selv utforske hvordan man tegner ulike grafiske
+elementer på et canvas. Dette har altså ikke vært spesielt nøye gjennomgått i timene og er
+en øvelse i å lese andres eksempler/manualer. Husk at dere skal lese, forstå og lage selv.
+Ikke kopiere...
+Forsøk å bygge opp spillet ved hjelp av funksjoner. En funksjon bør som en
+tommelfingerregel ikke ha mer enn 20-30 linjer kode som maks.
+Følgende funksjonalitet er et minimum:
+<br>• For hver gang man trykker med musen på canvas-elementet skal neste del av
+hangman vises.<br> 
+<br>• Spilleren skal kunne skrive inn en bokstav og få en eller annen form på feedback <br>
+på om bokstaven er med i ordet eller ikke. <br>
+<br>• (merk at minimumsløsningen ikke krever kobling mellom tegningen i canvas og <br>
+"ordgjettingen", og at det kan løses som to separate prosjekter for de som synes <br>
+det blir for stort.)<br>
+Følgende funksjonalitet må med for å løse oppgaven fullt ut: <br>
+<br>• Om bokstaven finnes i ordet skal denne/disse bokstavene bli synlige i <br>
+løsningsordet der bokstaver ellers er kammuflert som _ <br>
+<br>• Om bokstaven ikke finnes skal neste del av hangman vises. <br>
+<br>• Løsningsord skal velges blant en liste forhåndsdefinerte ord. <br>
+<br>• Når siste del av hangman vises skal det stå "game over" i canvas-elementet. <br>
+Klarer vi ordet skal vi vise en gratulasjon <br>
+Følgende funksjonalitet hadde vært artig (for de som vil gjøre noe ekstra): <br>
+<br>• Vanskelighetsgrad som for eksempel <br>
+o Basert på antall bokstaver i ordet <br>
+o Basert på tid(countdown) <br>
+o Eller andre ting du selv kommer på <br>
+<br>• Poengsum som viser hvor godt spilleren løste oppgaven. Dette kan f.eks være <br>
+o Tid brukt <br>
+o Forsøk brukt <br>
+o Vanskelighetsgrad <br>
+<br>• Programmeringsanimert konfetti på gratulasjonsmeldingen er stas <= Dette kan <br>
+være mye jobb, så ta det som en utfordring de som vil. HINT: Legg en ny canvas <br>
+ovenpå den andre ved hjelp av (z-index) og tegn konfetti på denne. <br>
+<br>• Andre ting du selv kommer på</b><br>
+</p>
+</body>
+</html>
+
+
+
+

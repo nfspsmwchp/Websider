@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 2</title>
+<script>
+
+
+function tallmellom(tall1, tall2, tall3) {
+	if(tall1 >= tall2 && tall1 <=tall3) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function test(){
+	if(tallmellom(document.getElementById("txtTekst").value,0,10)){
+		alert("Du ser denne meldingen kun hvis du har true");
+	}
+}
+
+
+window.onload = oppstart;
+ 
+function oppstart() {
+	document.getElementById("knapp2").onclick = kjor;
+}
+
+
+function kjor() {
+	
+	var svar = tallmellom(document.getElementById("txtTekst").value, 0, 10);  // Mellom 0 og 10 her
+	alert("Tallet ditt er " + svar);
+	test();
+}
+
+	
+</script>
+
+<style>
+</style>
+</head>
+<body>
+	
+	<h1>Oppgave 2</h1>
+	<p><b>Lag ferdig en funksjon som sjekker om et tall er innenfor et intervall<br>
+		(returnerer en boolean). Lag så 2-3 utskrifter, der denne funksjonen er i bruk.<br>
+		function InnenforInterval(tall, fra, til)</b></p>
+   Tekst: <input type="text" id="txtTekst"/>
+  <button id="knapp2" type="button">Kjør</button>
+  <p>Hvis du skriver et tall mellom 0-10 vil du få true</p>
+  <p id="utskrift"></p>
+</body>
+</html>

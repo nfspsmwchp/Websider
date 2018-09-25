@@ -1,0 +1,67 @@
+.test1{
+	color: blue;
+}
+.test2{
+	color: red;
+}
+div {
+    background-color: #FEFFA8;
+    width: 350px;
+	height: 250px
+    padding: 30px;
+    border: 30px dotted #000000;
+    margin: 30px;
+}
+#wrapper {
+	background-color: #C1FFD0;
+    width: 700px;
+	height: 350px
+    padding: 30px;
+    border: 15px solid #000000;
+    margin: 25px;
+}
+#minDiv1 {
+    position:static;
+    width:100px;
+    height:100px;
+    background: #FEFFA8;
+    left:10px;
+    top:100px;
+	border: 5px solid #000000
+}
+#minDiv2 {
+    position:absolute;
+    width:100px;
+    height:100px;
+    background: #FEFFA8;
+    left:10px;
+    top:1800px;
+	border: 5px solid #000000
+}
+#minDiv3 {
+    position:fixed;
+    width:100px;
+    height:100px;
+    background: #FEFFA8;
+    left:1000px;
+    top:800px;
+	border: 5px solid #000000
+}
+#minDiv4 {
+    position:relative;
+    width:100px;
+    height:100px;
+    background: #FEFFA8;
+    left:10px;
+    top:100px;
+	border: 5px solid #000000
+}
+#minDiv5 {
+    position:inital;
+    width:100px;
+    height:100px;
+    background: #FEFFA8;
+    left:10px;
+    top:100px;
+	border: 5px solid #000000
+}

@@ -1,0 +1,54 @@
+body{
+	background: #FFF77A;
+	font-family: Verdana, Tahoma, Arial, sans-serif;
+	font-size: 18px;
+	overflow: auto;
+}
+
+
+h1, h2, h3 {
+	text-align: center;
+	padding-left: 5%;
+	color: #000000;
+}
+
+#test {
+	padding: 2%;
+	color: #000000;
+	font-family: Pacifico;
+}
+
+@font-face {
+	font-family: "Pacifico";
+	src: url(Pacifico.ttf") format("truetype");
+}
+
+#spin {
+    margin: 40px;
+    width: 120px;
+    height: 120px;
+    background: #000000;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 4000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(360deg);
+    }
+    to {
+        transform:rotate(0deg);
+    }
+}

@@ -1,0 +1,118 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 5</title>
+<script>
+
+// Dager i uka
+cal_days_labels = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør','Søn'];
+
+// Månedene i rekkefølge
+cal_months_labels = ['Januar', 'Februar', 'Mars', 'April',
+                     'Mai', 'Juni', 'Juli', 'August', 'September',
+                     'Oktober', 'November', 'Desember'];
+
+// Antall dager i hver måned etter rekkefølge
+cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+// dette er dagens dato
+cal_current_date = new Date(); 
+
+function Calendar(month, year) {
+  this.month = (isNaN(month) || month == null) ? cal_current_date.getMonth() : month;
+  this.year  = (isNaN(year) || year == null) ? cal_current_date.getFullYear() : year;
+  this.html = '';
+}
+
+    
+Calendar.prototype.generateHTML = function() {
+
+  // Plasser startsdagen
+    
+  var firstDay = 1;
+  var startingDay = 5;                     //<--------Her kan du velge hvor ukedagen du skal starte
+  
+  // Plasser antall dager i måneden
+  var monthLength = 31;                    //<----- Her kan du velge antall dager !!!
+  
+  
+    
+  // HEADEREN
+  var monthName = cal_months_labels[this.month]
+  var html = '<table class="calendar-table">';
+  html += '<tr><th colspan="6">';
+  html +=  monthName + "&nbsp;" + this.year;
+  html += '</th></tr>';
+  html += '<tr class="calendar-header">';
+  for(var i = 0; i <= 6; i++ ){
+    html += '<td class="calendar-header-day">';
+    html += cal_days_labels[i];
+    html += '</td>';
+  }
+  html += '</tr><tr>';
+
+  // Fyll inn dager
+  var day = 1;
+  // Denne løkken er  (rader)
+  for (var i = 0; i < 9; i++) {
+    // Denne løkken er for ukedager (cells)
+    for (var j = 0; j <= 6; j++) { 
+      html += '<td class="calendar-day">';
+      if (day <= monthLength && (i > 0 || j >= startingDay)) {
+        html += day;
+        day++;
+      }
+      html += '</td>';
+    }
+    // Slutt å lage rader hvis det ikke er flere dager igjen
+    if (day > monthLength) {
+      break;
+    } else {
+      html += '</tr><tr>';
+    }
+  }
+  html += '</tr></table>';
+
+  this.html = html;
+}
+
+Calendar.prototype.getHTML = function() {
+  return this.html;
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>Oppgave 5</h1>
+<script type="text/javascript">
+  var cal = new Calendar();
+  cal.generateHTML();
+  document.write(cal.getHTML());
+</script>
+<p>Antall dager i måneden</p>
+<input type="text" id="antalldager"><br>
+<p>Startdag</p>
+<input type="text" id="startsdag"><br>
+<input type="button" value="Velg dag" onclick="bestem()"/>
+<p>0= Mandag<br>
+   1= Tirsdag<br>
+   2= Onsdag<br>
+   3=Torsdag<br>
+   4=Fredag<br>
+   5=Lørdag<br>
+   6=Søndag</p><br>
+   <p>Denne oppgaven er gjort sammen med en medelev (Rebin Shoresh)<br>
+      Vi fant kalenderen på http://jszen.blogspot.no/2007/03/how-to-build-simple-calendar-with.html.<br>
+      Vi byttet så koden videre nok til å kunne bruke den i oppgaven<br>
+      Det er også mulig å velge hvor du skal starte på dagen og antall<br>
+      dager i måneden, men hadde problem å binde den til inputten<br>
+      (Sjekk kommentaren på koden)</p>
+   
+   
+</body>
+</html>

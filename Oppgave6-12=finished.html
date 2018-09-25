@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 6.12</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+    
+    document.getElementById("knapp12").onclick = oppgave612;
+
+}
+    
+var tall = [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+function oppgave612() {
+    
+    
+    
+    var soekeNavn = parseInt(document.getElementById("txtNummer2").value);
+	var temp = 0;
+	var funnetPosisjon = -1;
+
+	for(var i=0; i< tall.length; i++){
+		if( tall[i] === soekeNavn ) {
+            temp++;
+			funnetPosisjon = i;
+			
+		}
+	
+    }
+	if(temp == 0) {
+		document.getElementById("utskrift12").innerHTML = "Tallet finnes ikke i arrayen";
+	}
+	
+    else {
+		document.getElementById("utskrift12").innerHTML = "Tallet " + tall[funnetPosisjon] + " finnes i arrayen " + temp + " gang(er)";
+    }
+    
+}
+
+   
+   
+	
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h1>Oppgave 6.12</h1>
+    <p>Lag en array med tall, gjør så følgende med denne<br>
+       Finn ut hvor mange forekomster det er av en bestemt verdi<br><br>
+    Søk etter tall: <input type="text" id="txtNummer2"></p>
+    <p>Søk på tall i arrayen (NB kun 0->10 finnes i arrayen)</p>
+	<button type="button12" id="knapp12">Søk på tall</button>
+    <p id="utskrift12"></p>
+</body>
+</html>
+
+
+
+
+
+
+

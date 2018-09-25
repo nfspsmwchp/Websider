@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 3</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+    document.getElementById("btnTest").onclick = test;
+}
+	
+function rentefunksjon(){
+     var belop = parseInt(document.getElementById("belop").value, 10);
+     var antall_aar = parseInt(document.getElementById("antall_aar").value, 10);
+     var rente = parseInt(document.getElementById("rente").value, 10)/100;
+	 var text = "";
+	 var j;
+	 
+		for (j = 0;j <= antall_aar; j++) {
+		
+		if (j == 0)
+			text += "Etter " + "" + j + " år har du " + belop + "kr på banken." + "<br>";
+			
+		else text += "Etter " + j + " år har du " + (belop + (belop * ( j * rente ))) + "kr på banken." + "<br>";
+	
+		document.getElementById("test").innerHTML = text; 
+}
+}
+</script>
+<style>
+</style>
+</head>
+<body>  
+	
+	<h1>Oppgave 3</h1>
+		<form id="kalkuler">
+			<p>Lag et skjema som tar i mot et pengebeløp,<br>
+			  en rentesats og et antall år. Lag deretter en<br>
+			   for-løkke som printer ut linjer på formen</p>
+			<p>Finn ut hvor mye du har etter antall år</p>
+			Beløp: 		<input type="number" id="belop" /><br>
+			Antall år: 	<input type="number" id="antall_aar" /><br>
+			Rente i (%):<input type="number" id="rente" /><br>
+		<input type="button" value="Kalkuler" onclick="rentefunksjon()"/>
+		</form>
+	<p id="test"></p>
+	
+
+
+
+
+

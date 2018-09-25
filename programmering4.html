@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Murats Webside</title>
+<style>
+.spørsmålDiv{display:none;}
+</style>
+
+<script>
+
+var fasit = new Array(15);          			 
+fasit[0] = "Olav Haraldsson";                
+fasit[1] = "1883-1885";
+fasit[2] = "Navy Seals";
+fasit[3] = "8851 km";
+fasit[4] = "Tsunami";
+fasit[5] = "Mt.Augustus";
+fasit[6] = "George Washington";
+fasit[7] = "1912";
+fasit[8] = "Zugspitze";
+fasit[9] = "Hekla";
+fasit[10] = "William & Kate";
+fasit[11] = "En sko som sparker en ball";
+fasit[12] = "5.6 millioner";
+fasit[13] = "Gotland";
+fasit[14] = "Kalaallit";
+
+
+var spørsmålNå = 0;						
+var antallSpørsmål = fasit.length;		
+var antallValg = 3;	        				
+
+
+window.onload = oppstart;
+
+
+function oppstart() {
+    document.getElementById("knapp").onclick = oppgave1;
+}
+
+
+function oppgave1() {
+	var k;
+	for (k = 0; k <= 100; k++) { 
+    document.getElementById("utskrift").innerHTML += k + "*" + k + "=" + k*k + "<br>";
+	}
+}
+
+
+function hentPoeng(form) {
+ var poeng = 0;													
+ var nåværendeElement;													
+ var valg;
+ 
+	for (i=0; i < antallSpørsmål; i++) {							
+		nåværendeElement = i * antallValg;										
+  
+	for (k=0; k < antallValg; k++) {								
+		valg = form.elements[nåværendeElement + k];				
+	
+	if (valg.checked) {									
+	if (valg.value == fasit[i]) { 						
+		poeng++;										
+		break;}	  	      										
+		}
+	}
+ }
+ 
+form.txt.value = poeng + " Poeng";								
+	return false;	                                              	
+}
+
+
+function fjernSpørsmål() {
+ var sel = document.getElementById("flereSpørsmål").getElementsByTagName("div");
+  
+	for (var i=0; i<sel.length; i++) {
+	document.getElementById(sel[i].id).style.display = "none";
+  }
+}
+
+
+function nesteSpørsmål() {
+  fjernSpørsmål();
+  document.getElementById("spørsmål" + (spørsmålNå+1)).style.display = "block"; 
+  spørsmålNå++;  
+
+  if (spørsmålNå > antallSpørsmål){
+	  spørsmålNå--;
+	}
+
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>Oblig 4</h1>
+<h2>Alternativ A - Quiz fra forskjellige land</h2>
+<h3>Murat Demirel - Informasjonssystemer</h3>
+<p> Hei og velkommen til prosjektet mitt. I dette prosjektet har jeg bygd en quiz som<br>
+	omfatter spørsmål fra forskjellige land. Prosjektet består av to forskjellige deler<br>
+	Første delen er selve quizen som består av 15 spørsmål fra forskjellige land. Jeg<br>
+	har her prøvet å bruke arrayer og for løkker for å få resultatene. I tillegg har jeg<br>
+	også gjort oppgave 1 som kan testes med knappen som heter *Oppgave1*.</p>
+
+<form id="landsQuiz" onsubmit="return hentPoeng(this)">
+	
+	<div id="flereSpørsmål">
+		
+		<div id="spørsmål1" class="spørsmålDiv">
+			<h2>Spørsmål 1: Norge<br>
+				Hva var Olav den helliges fulle navn ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål1" value="Olav Fredrikstad">Olav Fredrikstad</input><br>
+					<input type="checkbox" id="spørsmål1" value="Olav Hårfagre">Olav Hårfagre</input><br>
+					<input type="checkbox" id="spørsmål1" value="Olav Haraldsson">Olav Haraldsson</input><br><br>
+		</div>
+
+
+		<div id="spørsmål2" class="spørsmålDiv">
+			<h2>Spørsmål 2: Frankrike<br>
+				Når ble Eiffeltårnet bygd ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål2" value="1887-1889">1887-1889</input><br>
+					<input type="checkbox" id="spørsmål2" value="1924-1925">1924-1925</input><br>
+					<input type="checkbox" id="spørsmål2" value="1883-1885">1883-1885</input><br><br>
+		</div>
+
+
+		<div id="spørsmål3" class="spørsmålDiv">
+			<h2>Spørsmål 3: Afghanistan<br>
+				Hvem drepte Osama Bin Laden ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål3" value="Navy Seals">Navy Seals</input><br>
+					<input type="checkbox" id="spørsmål3" value="CSI">CSI</input><br>
+					<input type="checkbox" id="spørsmål3" value="American Interpool">American Interpool</input><br><br>
+		</div>
+
+
+		<div id="spørsmål4" class="spørsmålDiv">
+			<h2>Spørsmål 4: Kina<br>
+				Hvor lang er Den kinesiske mur ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål4" value="9654 km">9654 km</input><br>
+					<input type="checkbox" id="spørsmål4" value="8851 km">8851 km</input><br>
+					<input type="checkbox" id="spørsmål4" value="8953 km">8953 km</input><br><br>
+		</div>
+
+
+		<div id="spørsmål5" class="spørsmålDiv">
+			<h2>Spørsmål 5: Japan<br>
+				Hva heter bølgen som ødelagte byen Thoku 2011 ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål5" value="Nihon">Nihon</input><br>
+					<input type="checkbox" id="spørsmål5" value="Tsunami">Tsunami</input><br>
+					<input type="checkbox" id="spørsmål5" value="Higashi">Higashi</input><br><br>
+		</div>
+
+
+		<div id="spørsmål6" class="spørsmålDiv">
+			<h2>Spørsmål 6: Australia<br>
+				Hva heter verdens største monolitt ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål6" value="Mt.Everest">Mt.Everest</input><br>
+					<input type="checkbox" id="spørsmål6" value="Mt.Augustus">Mt.Augustus</input><br>
+					<input type="checkbox" id="spørsmål6" value="Ayers Rock">Ayers Rock</input><br><br>
+		</div>
+
+
+		<div id="spørsmål7" class="spørsmålDiv">
+			<h2>Spørsmål 7: USA<br>
+				Hva het USA's første president ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål7" value="Ronald Reagan">Ronald Reagan</input><br>
+					<input type="checkbox" id="spørsmål7" value="George Washington">George Washington</input><br>
+					<input type="checkbox" id="spørsmål7" value="Abraham Lincoln">Abraham Lincoln</input><br><br>
+		</div>
+
+
+		<div id="spørsmål8" class="spørsmålDiv">
+			<h2>Spørsmål 8: Atlanterhavet<br>
+				Hvilket årstall sank Titanic ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål8" value="1895">1895</input><br>
+					<input type="checkbox" id="spørsmål8" value="1905">1905</input><br>
+					<input type="checkbox" id="spørsmål8" value="1912">1912</input><br><br>
+		</div>
+
+
+		<div id="spørsmål9" class="spørsmålDiv">
+			<h2>Spørsmål 9: Tyskland<br>
+				Hva heter Tysklands høyeste fjell ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål9" value="Zugspitze">Zugspitze</input><br>
+					<input type="checkbox" id="spørsmål9" value="Weser">Weser</input><br>
+					<input type="checkbox" id="spørsmål9" value="Harz">Harz</input><br><br>
+		</div>
+
+
+		<div id="spørsmål10" class="spørsmålDiv">
+			<h2>Spørsmål 10: Island<br>
+				Hva heter den mest aktive vulkanen i Island ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål10" value="Katla">Katla</input><br>
+					<input type="checkbox" id="spørsmål10" value="Hekla">Hekla</input><br>
+					<input type="checkbox" id="spørsmål10" value="Mekka">Mekka</input><br><br>
+		</div>
+
+
+		<div id="spørsmål11" class="spørsmålDiv">
+			<h2>Spørsmøl 11: England<br>
+				Hva heter kongeparet som giftet seg i 2011 ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål11" value="Elisabeth & Charlie">Elisabeth & Charlie</input><br>
+					<input type="checkbox" id="spørsmål11" value="Charles & Jennyfer">Charles & Jennyfer</input><br>
+					<input type="checkbox" id="spørsmål11" value="William & Kate">William & Kate</input><br><br>
+		</div>
+
+
+		<div id="spørsmål12" class="spørsmålDiv">
+			<h2>Spørsmål 12: Italia<br>
+				Hva slags form har landet Italia ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål12" value="En fløyte">En fløyte</input><br>
+					<input type="checkbox" id="spørsmål12" value="Et øye">Et øye</input><br>
+					<input type="checkbox" id="spørsmål12" value="En sko som sparker en ball">En sko som sparker en ball</input><br><br>
+		</div>
+
+		
+		<div id="spørsmål13" class="spørsmålDiv">
+			<h2>Spørsmål 13: Danmark<br>
+				Hvor mange innbyggere er det i Danmark ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål13" value="7.4 millioner">7.4 millioner</input><br>
+					<input type="checkbox" id="spørsmål13" value="5.6 millioner">5.6 millioner</input><br>
+					<input type="checkbox" id="spørsmål13" value="6.2 millioner">6.2 millioner</input><br><br>
+		</div>
+
+		
+		<div id="spørsmål14" class="spørsmålDiv">
+			<h2>Spørsmll 14: Sverige<br>
+				Hva heter Sveriges største øy ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål14" value="Gotland">Gotland</input><br>
+					<input type="checkbox" id="spørsmål14" value="Orust">Orust</input><br>
+					<input type="checkbox" id="spørsmål14" value="Hisingen">Hisingen</input><br><br>
+		</div>
+
+		
+		<div id="spørsmål15" class="spørsmålDiv">
+			<h2>Spørsmål 15: Grønland<br>
+				Hva er Grønlands offisielle navn ?</h2>
+				<p>'Husk at bare en av alternativene er riktig'</p>
+					<input type="checkbox" id="spørsmål15" value="Nuharma">Nuharma</input><br>	                                                      
+					<input type="checkbox" id="spørsmål15" value="Gubadah">Gubadah</input><br>
+					<input type="checkbox" id="spørsmål15" value="Kalaallit">Kalaallit</input><br><br>
+		</div>
+
+		
+		<button onclick="nesteSpørsmål()">Neste</button>
+		<b>Du har : </b><input type="text" id="txt"></input>
+	
+	</div>
+	
+</form>
+<br>
+<input type="button" id="knapp" value=Oppgave1></input><br>
+<p id="utskrift"></p>
+
+
+</body>
+</html>

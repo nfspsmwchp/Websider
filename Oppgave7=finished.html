@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 7</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+	
+	document.getElementById("knapp").onclick = finnDager;
+	
+}
+
+function finnDager() {
+	
+	var dager = [31, 28, 31, 30, 31, 30, 31, 31 , 30, 31, 30, 31];
+    var månedTall = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+    var måned = ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"]
+	
+	var soekeMåned = document.getElementById("txtNavn").value;
+	
+	var funnetPosisjon = -1;
+    
+
+	for(var i=0;i<månedTall.length;i++){
+		if( månedTall[i] === soekeMåned ) {
+			funnetPosisjon = i;
+			break;
+		}
+        
+	}
+    for(var i=0;i<måned.length;i++){
+		if( måned[i] === soekeMåned ) {
+			funnetPosisjon = i;
+			break;
+		}
+        
+	}
+	if(funnetPosisjon < 0) {
+		document.getElementById("utskrift").innerHTML = "Finnes ikke i arrayen, prøv et tall mellom 1-12";
+	
+    }
+	else {
+		document.getElementById("utskrift").innerHTML = måned[funnetPosisjon] + " har " + dager[funnetPosisjon] + " dager";
+	}
+    
+}
+
+    
+</script>
+<style>
+</style>
+</head>
+<body>
+	<h1>Oppgave 7</h1>
+    <p>Lag en webside med en tekstboks og en knapp. Lag så en array med antall dager<br>
+       i hver måned. Januar skal da være på indeks 0, februar på indeks 1 osv. I <br>
+       tekstboksen skal du så kunne skrive inn nummeret på en måned (1-12), og få <br>
+       ut antall dager i denne måneden. Du kan her se bort i fra skuddår</p>
+    <p>Skriv et tall mellom 1-12 <br><br>
+    Måned nr: <input type="text" id="txtNavn"></p>
+	<button type="button" id="knapp">Finn dager</button>
+    <p id="utskrift"></p>
+</body>
+</html>

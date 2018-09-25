@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 8</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+    
+    document.getElementById("knapp").onclick = test;
+
+}
+function test(){
+            
+     var array = ["Hans", "Ole", "Nils", "Olav", "Per", "Knut", "Kari", "Line","Pia"]; 
+        var array2 = [];
+            for(i=0;i<3;i++){
+                var randomnavn = Math.floor(Math.random() * array.length);
+                array2.push(array.splice(randomnavn,1))
+            }
+    document.getElementById("utskrift").innerHTML = array2;    
+}
+    
+</script>
+<style>
+</style>
+</head>
+<body>
+	<h1>Oppgave 8</h1>
+    <p>Gå ut ifra at du har definert en array med navn på studenter.<br>
+       Skriv kode som plukker ut tre tilfeldige navn fra denne arrayen,<br>
+       og legger disse i en egen/ny array. Skriv deretter ut denne nye <br>
+       arrayen. Du må også sørge for at samme navn ikke blir plukket ut<br>
+       flere ganger</p>
+    
+    <p>Få 3 tilfeldige navn fra arrayen <br><br>
+	<button type="button" id="knapp">Få navn</button>
+    <p id="utskrift"></p>
+</body>
+</html>

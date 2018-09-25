@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+         <meta charset="UTF-8">
+         <title>Murats webside</title>
+		 <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+		 <link rel="stylesheet" type="text/css" href="style2.css"/> 
+</head>
+
+
+<body>
+		<center><h1>Arbeidskrav 1<h1><center>
+		<h6> Navn: Murat Demirel <br>
+		     Klasse: Informasjonssystemer <br>
+		     Trinn: 1. Første <h6>
+	
+
+<p>Oppgave 9</p>
+	<p id="byttfarge" onclick="minFunction()">Trykk på meg for å bytte farge</p>
+	<p>Her bytter paragrafen farge da den blir trykket på</p>
+
+<p>Oppgave 10</p>
+	<form>
+	<input type="radio" name="rad" value="" onclick="showhide(this)"> Vis
+	<br>
+	<input type="radio" name="rad" value="none" checked="checked" onclick="showhide(this)"> Skjul
+	<br>
+	<input type="text" name="tekstfelt" disabled="disabled" style="display:none">
+	</form>
+
+		
+<script>
+	function minFunction() {
+		document.getElementById("byttfarge").style.color = "green";
+}
+</script>
+
+
+<script>
+
+function showhide(r){
+	var t=r.form["tekstfelt"];
+		r.value=='none'?t.setAttribute('disabled','disabled'):t.removeAttribute('disabled');
+		t.style.display=r.value;
+}
+
+</script>
+</body>
+
+</html>
+
+
+		

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 6.11</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+    
+    document.getElementById("knapp11").onclick = oppgave611;
+
+}
+	
+function oppgave611() {
+    
+    var tall2 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+  
+    var soekeNavn = document.getElementById("txtNummer11").value;
+	
+	var funnetPosisjon = -1;
+
+	for(var i=0; i< tall2.length; i++){
+		if( tall2[i] === soekeNavn ) {
+			funnetPosisjon = i;
+			break;
+		}
+	
+    }
+	if(funnetPosisjon < 0) {
+		document.getElementById("utskrift11").innerHTML = "Tallet finnes ikke i arrayen";
+	}
+	
+    else {
+		document.getElementById("utskrift11").innerHTML = "Tallet " + tall2[funnetPosisjon] + " finnes i arrayen";
+	
+    }
+	
+}
+
+	
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h1>Oppgave 6.11</h1>
+    <p>Søk på tall i arrayen (NB kun 0->10 finnes i arrayen)</p>
+    <p>Lag en array med tall, gjør så følgende med denne<br>
+       Finn ut om en liste inneholder en bestemt verdi<br>
+    Søk etter tall: <input type="text" id="txtNummer11"></p>
+    <button type="knapp11" id="knapp11">Søk på tall</button><br><br>
+    <p id="utskrift11"></p>
+</body>
+</html>
+
+
+
+

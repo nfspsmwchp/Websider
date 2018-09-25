@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 4</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+document.getElementById("btnTest").onclick = kombinasjoner;
+}
+
+function kombinasjoner() {
+	
+    for(var faktor2 = 1; faktor2 <= 5; faktor2++) {
+		for (var faktor1 = 1; faktor1 <= 5; faktor1++) {
+			for (var faktor3 = 1; faktor3 <= 5; faktor3++) {
+                for (var faktor4 = 1; faktor4 <= 5; faktor4++) {
+				        document.getElementById("utskrift").innerHTML += 
+					       faktor2 + " " + faktor1 + " " + faktor3 + " " + faktor4 + " " + "<br />";
+	
+}
+}
+}
+}
+}
+
+</script>
+<style>
+</style>
+</head>
+<body>
+	<h1>Oppgave 4</h1>
+	<p>Skriv ut alle tosifrede kombinasjoner av tallene<br>
+	 1,2,3,4 og 5, slik som 11, 12, 13, 14, 15, 21, 22 osv. <br>
+	 Prøv også med alle tresifrede, firesifrede og femsifrede kombinasjoner</p>
+	<p>Opprett firesifrede kombinasjoner, (NB - Tar for langt tid å lade med femsifrede)</p>
+	<p id="utskrift"></p>
+	<button id="btnTest">Oprett Kombinasjon</button>
+</body>
+</html>
+
+
+	
+
+
+
+
+

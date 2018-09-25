@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 1</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+    document.getElementById("knapp").onclick = test;
+}
+	
+function test() {
+  
+		
+	var tall = document.getElementById("tall").value
+	
+	var tekst = document.getElementById("tekst").value
+	
+	   while (tall > 0  ) {
+		
+      document.getElementById("utskrift2").innerHTML += tekst + "</br>";
+    tall--
+	}  
+  
+}
+    
+</script>
+<style>
+</style>
+</head>
+
+<body>  	
+    <h1>Oppgave 1</h1>
+    <p>Oppgave 1: Lag to tekstbokser og en knapp.<br>
+       Når man trykker på knappen skal teksten i den <br>
+       første tekstboksen skrives ut så mange ganger (linje for linje)<br>
+       som man skrev et tall i den andre tekstboksen </p>
+    <p>Skriv noe her:<input type="text" id="tekst" /><br />
+    <p id="utskrift"></p>
+	
+    
+	<p>Antall ganger:<input type="text" id="tall" /><br />
+    <br><button id="knapp">Dupliser</button></p>
+    <p id="utskrift2"></p> 
+
+</body>
+</html>
+
+
+
+
+

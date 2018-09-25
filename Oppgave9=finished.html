@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 9B</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+	
+	document.getElementById("knapp").onclick = forekomst;	
+}
+
+function forekomst() {
+    var svar1 = document.getElementById("diagram").innerHTML = "";     
+    var teksten=document.getElementById('txt').value;   
+    var temp = teksten;
+    var flere_ord = Array();
+    var unik = [];
+       
+    
+    var nyttElement = document.createElement("div");                  
+    var img = document.createElement("img");
+    img.src = "piksel.png";
+    img.style.height = "20px"
+    img.style.width = "20px"
+      
+    flere_ord=temp.split(" ");
+    
+      
+    
+       document.getElementById("diagram").appendChild(nyttElement);  
+    
+    
+            for (var i = 0; i < flere_ord.length; i++) {
+                var ord = flere_ord[i];
+                console.log(ord);
+
+                if (ord in unik)
+                {
+                    console.log("ord funnet");
+                    var telling = unik[ord];
+                    telling ++;
+                    unik[ord]=telling;
+                }
+                else
+                {
+                    console.log("Ord funnet");
+                    unik[ord]=1;
+                    }
+                }
+                console.log(unik);
+    
+            
+                for (ord in unik){
+                for (j=0;j<unik[ord];j++){
+                    
+                var nyStatistikk = document.createElement("img");
+                nyStatistikk.src = "piksel.png";
+                nyStatistikk.style.height = "20px"
+                nyStatistikk.style.width = "20px"
+                    
+		          
+                document.getElementById("diagram").appendChild(nyStatistikk); 
+          } 
+                    
+      document.getElementById("diagram").innerHTML += ord + " finnes" + " : " +unik[ord]+ " gang(er)" +" i teksten"+ "<br>";
+   }
+}
+
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h1>Oppgave 9B</h1>
+    <p>Lag en webside der brukeren kan skrive inn en tekst, og så<br>
+       få ut en oversikt over hvor mange ganger de ulike ordene i<br>
+       teksten forekommer. Lag også en statistikk over f.eks de ti<br>
+       mest hypige ordene, lengste og korteste ord osv. Bruk et<br>
+       liggende søylediagram der dere setter bredden på bildet for<br>
+       å presentere statistikken</p>
+    <p>Skriv for å få oversikt over hvor mange ganger de ulike ordene i teksten forekommer</p>
+    <textarea id="txt" cols="50" rows="8" placeholder="skriv det du ønsker her"></textarea></br>
+    <button type="button" onclick="forekomst()">Søk</button>
+    <div id="diagram"></div>
+</body>
+</html>

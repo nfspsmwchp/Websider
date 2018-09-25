@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Oppgave 2</title>
+<script>
+	
+window.onload = oppstart;
+ 
+function oppstart() {
+    document.getElementById("knapp").onclick = opptelling;
+    document.getElementById("knapp2").onclick = opptelling2;
+    document.getElementById("knapp3").onclick = opptelling3;
+    document.getElementById("knapp4").onclick = opptelling4;
+    document.getElementById("knapp5").onclick = opptelling5;
+    document.getElementById("knapp6").onclick = opptelling6;
+    document.getElementById("knapp7").onclick = opptelling7;
+}
+	
+function opptelling() {
+  
+	var text = "";
+	var i;
+	for (i = 0; i < 101; i++) {
+    if (i === 101) { break; }
+    text += i + " ";
+   
+    }
+  document.getElementById("utskrift").innerHTML = text;
+}
+
+function opptelling2() {
+  
+	var tall = 100;
+	
+	while (tall > 0  ) {
+		
+		document.getElementById("utskrift2").innerHTML + tall;
+		document.getElementById("utskrift2").innerHTML += tall + " ";
+		tall--;
+	}
+	
+}
+    
+function opptelling3() {
+  
+	for(var j = 0; j < 200; j++){
+        { 
+        document.getElementById("utskrift3").innerHTML += j/2 + " ";
+     }
+   } 
+
+}
+
+function opptelling4() {
+
+        
+    for(var j = 0; j < 100; j++){
+       if (j % 3 == 0){
+        document.getElementById("utskrift4").innerHTML += j + " ";
+    }
+        
+	} 
+
+}
+
+function opptelling5() {
+  
+	for(var i = 0; i <= 100; i = i + 2) { 
+	document.getElementById("utskrift5").innerHTML += i + " " 
+
+	} 
+
+} 
+
+function opptelling6() {
+    
+    var husk = 0;
+	   for(i=1; i<100; i+=2){
+         document.getElementById("utskrift6").innerHTML += i + " "
+    }
+}    
+    
+function opptelling7() {
+    
+    
+    for(var j = 0; j < 101; j++){
+       if (j % 2 == 0){
+        document.getElementById("utskrift7").innerHTML += j + ", ";
+    }
+       else if(j % 2 == 1){
+        document.getElementById("utskrift7").innerHTML += "-" + j + ", ";
+    }
+  }
+}  
+
+	
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h1>Oppgave 2.1</h1>
+    <p>Lag websider som skriver ut lister <br>
+       med tall mellom 0 og 100 etter følgende regler <br>
+       FORLENGS</p>
+	<p>Opprett tall fra 0 til 100</p>
+    <button id="knapp">Oprett tall</button></p>
+    <p id="utskrift"></p><br>
+    
+    
+    <h1>Oppgave 2.2</h1>
+    <p>Lag websider som skriver ut lister <br>
+       med tall mellom 0 og 100 etter følgende regler <br>
+       Baklengs</p>
+    <p>Opprett tall fra 100-->0</p>
+    <button id="knapp2">Oprett tall</button></p>
+    <p id="utskrift2"></p><br>
+    
+    
+    <h1>Oppgave 2.3</h1>
+	<p>Lag webside som skriver ut lister med tall mellom 0 og 100 etter følgende regler<br>
+       Alt delt på 2</p>
+    <p>Opprett tall delt på 2 fra 0->100</p>
+    <button id="knapp3">Oprett tall</button></p>
+    <p id="utskrift3"></p><br>
+    
+    
+    <h1>Oppgave 2.4</h1>
+	<p>Lag websider som skriver ut lister <br>
+       med tall mellom 0 og 100 etter følgende regler <br>
+       Delelig på 3</p>
+    <p>Opprett tall delelig på 3 fra 0->100</p>
+    <button id="knapp4">Oprett tall</button></p>
+    <p id="utskrift4"></p><br>
+    
+    
+    <h1>Oppgave 2.5</h1>
+	<p>Lag webside som skriver ut lister med tall mellom 0 og 100 etter følgende regler<br>
+       Partall</p>
+    <p>Opprett partall fra 0->100</p>
+    <button id="knapp5">Oprett tall</button></p>
+    <p id="utskrift5"></p>
+    
+    
+    <h1>Oppgave 2.6</h1>
+	<p>Lag webside som skriver ut lister med tall mellom 0 og 100 etter følgende regler<br>
+        Oddetall</p>
+    <p>Opprett oddetall fra 0->100</p>
+    <button id="knapp6">Oprett tall</button></p>
+    <p id="utskrift6"></p><br>
+    
+    
+    <h1>Oppgave 2.7</h1>
+    <p>Lag websider som skriver ut lister med tall mellom 0 og 100 etter følgende regler<br>:
+       Annethvert tall positivt og negativ</p>
+     <p>Opprett positiv og negativ tall 0->100</p>
+    <button id="knapp7">Oprett tall</button></p>
+    <p id="utskrift7"></p>
+</body>
+</html>
+
+
+

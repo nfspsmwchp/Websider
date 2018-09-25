@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+         <meta charset="UTF-8">
+         <title>Murats webside</title>
+		 <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+		 <link rel="stylesheet" type="text/css" href="style2.css"/> 
+</head>
+
+
+<body>
+		<center><h1>Arbeidskrav 1<h1><center>
+		<h6> Navn: Murat Demirel <br>
+		     Klasse: Informasjonssystemer <br>
+		     Trinn: 1. Første <h6>
+	
+<p>Oppgave 7</p>
+	<form name="frm" method="post" action="takk.html">
+	Brukernavn: <input type"username" name="brukernavn"/>
+	<br/>
+	Passord: <input type"password" name="passord"/>
+	<br/>
+	Bekreft Passord: <input type="password" name="validerpassord"/>
+	<br/>
+	Alder: <input type="alder" name="alder"/>
+	<br>
+	<input type="submit" value="Registrer" onclick="return val1();" />
+		
+
+<script>
+	function val1 () {
+		if(frm.passord.value == "")
+
+{
+	alert("Skriv inn et passord.");
+	frm.passord.focus();
+	return false;
+}
+
+		if(frm.validerpassord.value == "")
+
+{	
+	alert("Skriv passordet igjen.");
+	return false;
+}	
+		if(frm.validerpassord.value != frm.passord.value)
+
+{
+	alert("Passordet er ikke likt i begge feltene");
+	return false;
+}
+		if(frm.alder.value<18)
+{
+	alert("Du er ikke gammel nok");
+	return false;
+}
+	return true;
+}
+</script>
+
+
+
+</body>
+
+</html>
+
+
+		

@@ -1,0 +1,210 @@
+/*-----------------------------------------------------------------INDEX-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------INDEX-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------INDEX-----------------------------------------------------------------*/
+
+/*--------Bakgrunnen her (galaxy)--------*/
+body {
+    background-image: url("purplegalaxy.jpg");
+    background-size: cover;
+    font-family: Pacifico;
+}
+
+/*-------Overskrifter her--------*/
+h2 {
+	text-align : center;
+	text-decoration : none;
+    color: #C9A7FF;
+}
+
+.Question {
+	font-style:italic;
+}
+
+#ingenting {
+	text-decoration: none;
+	color: purple;
+	font-size: 200%;
+	font-family: Impact;
+}
+
+/*-------Paragraf her--------*/
+p {
+	padding : 2%;
+        color: #F6ECF3;
+}
+
+img {
+	text-align : center;
+	max-width : 100%;
+	height : auto;
+	width : auto;
+}
+/*--------Alt innhold ligger på denne--------*/
+#wrapper {
+	margin : 0 auto;
+	max-width : 980px;
+	width : 96%;
+	background : #4B0132;
+	padding : 2%;
+	border-radius : 25px;
+	border: 5px solid #610B38;
+	
+}
+/*-------Headeren her (The geekers escort service toppen)--------*/
+header {
+	padding : 5px;
+	text-align : center;
+}
+
+/*--------Menyen her (hjem, priser osv)--------*/
+nav {
+	background : #66102B;
+    color : white;
+	padding : 0;
+	margin : 0 0;
+	border-radius : 10px;
+    box-shadow: 1px 1px 5px 5px #FFFFFF;
+}
+
+nav ul {
+	list-style : none;
+	margin-left : 7%;
+	padding : 0;
+}
+
+/*--------Teksten som ligger i Nav--------*/
+nav li a {
+	color : #FFFFFF;
+    font-size: 120%;
+	display : block;
+	float : left;
+	padding : 20px;
+	text-decoration : none;
+}
+
+/*-------Musepekeren over Menyen--------*/
+nav a:hover, nav li.active a {
+	background-color : #4b0136;
+	color : #FFFFFF;
+}
+
+/*--------Ikke RØR !!--------*/
+.clearfix {
+	clear : both;
+}
+
+/*--------Ikke RØR--------*/
+#social {
+	text-align: left;
+	margin-left: 2%;
+}
+
+/*--------Størrelse på Iconene (Face,twitter, osv)--------*/	
+#social img {
+	padding-top : 5px;
+	height : 50px;
+	width : 50px;
+}
+
+/*------Venstre side(Faissal og Murat)--------*/
+.left-col {
+	background : #66102B;
+	width : 60%;
+	float : left;
+	margin-top : 2%;
+	border-radius : 10px;
+	box-shadow: 1px 1px 5px 5px #FFFFFF;
+}
+
+/*------Høyre side (Anders og Kjetil)--------*/
+.sidebar {
+	background : #66102B;
+	width : 38%;
+	float : right;
+	margin-top : 2%;
+	border-radius : 10px;
+        box-shadow: 1px 1px 5px 5px #FFFFFF;
+}
+
+/*------Footeren som ligger helt på bånn--------*/
+footer {
+	background : #66102b;
+	border-radius : 50px;
+    box-shadow: 1px 1px 5px 5px #FFFFFF;
+}
+
+/*-----------------------------------------------------------------PRISER-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------PRISER-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------PRISER-----------------------------------------------------------------*/
+
+.sexBois{
+	background : #66102B;
+	width : 95%;
+	vertical-align: top;
+	margin-top : 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	border-radius : 10px;
+	box-shadow: 1px 1px 5px 5px #FFFFFF;
+}
+
+.imgBois
+{
+	display: block;
+	margin: auto;
+	height: 50%;
+	width: 50%;
+}
+
+.tableBois  
+{
+	margin: auto;
+	background-color: white;
+	border: 1px solid black;
+}
+
+@font-face {
+	font-family: "Pacifico";
+	src: url(Pacifico.ttf") format("truetype");
+}
+
+
+
+/*-----------------PRINT--------------------*/
+@media print {
+	p {
+		page-break-inside:avoid;
+	}
+	.paypal {
+		display:none;
+	}
+	div#social {
+		display:none;
+	}
+	nav {
+		display:none;
+	}
+
+}
+
+
+
+
+/*--------HER KOMMER ALT MEDIA(Prøv å ikke rediger her)--------*/
+
+@media screen and (max-width: 478px) 	{
+body {
+	font-size: 13px;
+}
+
+}
+@media screen and (max-width: 740px) 	{
+.left-col {
+	width: 100%;
+}
+
+.sidebar {
+	width: 100%;
+}
+}
+/*--------CSS en er nå verifisert--------*/

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+         <meta charset="UTF-8">
+         <title>Murats webside</title>
+		 <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+		 <link rel="stylesheet" type="text/css" href="style2.css"/> 
+</head>
+
+
+<body>
+		<center><h1>Arbeidskrav 1<h1><center>
+		<h6> Navn: Murat Demirel <br>
+		     Klasse: Informasjonssystemer <br>
+		     Trinn: 1. Første <h6>
+
+<p>Oppgave 1</p>
+	<div id="tekstboks"></div>
+
+<p>Oppgave 2</p>
+	<div id="tekstboks2"></div>
+
+<p>Oppgave 3</p>
+	<div id="tekstboks3">
+		<p>Skriv ditt navn under</p>
+		<input type="text" id="txtinput">
+		<input type="button" value="Sett inn" onclick="settnavn()">
+	</div>
+	
+<p>Oppgave 4</p>
+	<div id="tekstboks4">
+		<input id="boks1" type="text"/>
+		<input id="boks2" type="text"/>
+		<input type="button" onclick="sum()+rest()+multiply()+div()" value="Beregn"/>
+	</div>
+	
+
+<p>Oppgave 5</p>
+	<form action="takk.html" form name="frm1" method="get" id="form1" onsubmit="return sjekk_info();">
+	Brukernavn:<input type= "username" name="brukernavn" id="brukernavn"/> 
+	Passord:<input type= "password" name="passord" id="passord"/>
+	<input type="submit" name= "btn1" id="btn1" value="Registrer"/>
+	<br>
+	<br>
+<a href="Oppgave6.html">Oppgave 6</a>
+	<br>
+	<br>
+<a href="Oppgave7.html">Oppgave 7</a>
+	<br>
+	<br>
+<a href="Oppgave8_9.html">Oppgave 8 og 9</a>
+	<br>
+	<br>
+<a href="Oppgave9_10.html">Oppgave 9 og 10</a>
+<script>
+	var tekstboks = document.getElementById("tekstboks");
+		tekstboks.innerHTML = "Hei jeg heter Murat og jeg skal bli nerd";
+</script>
+
+
+<script>
+	var fornavn = "Murat";
+	var tekstboks = document.getElementById("tekstboks2");
+		tekstboks.innerHTML = "Jeg elsker å progge hilsen" + " " + fornavn
+	var hei= "Hei"
+</script>
+
+
+<script>
+	function settnavn() 
+	{
+		var txtinput = document.getElementById('txtinput').value;
+		alert("Hei" + " " + txtinput);
+	}
+</script>
+
+
+
+<script>
+	var boks1,boks2;
+	function setValues()
+	{
+		boks1 = Number(document.getElementById("boks1").value);
+		boks2 = Number(document.getElementById("boks2").value);
+	}
+	function sum() 
+	{
+		setValues();
+		result = boks1+boks2;
+		alert("Resultatet på summering (+) er "+result);
+	}
+	function rest() 
+	{
+		setValues();
+		result = boks1-boks2;
+		alert("Resultatet på subtraksjon (-) er "+result);
+	}
+	function multiply() 
+	{
+		setValues();
+		result = boks1*boks2;
+		alert("Resultatet på multiplikasjon (*) er "+result);
+	}
+	function div() 
+	{
+		setValues();
+		result = boks1/boks2;
+		alert("Resultatet på divisjon (/) er "+result);
+	}
+</script>
+	
+	
+
+<script>
+function sjekk_info(){
+	var brukernavn = document.getElementById("brukernavn").value;
+	var passord = document.getElementById("passord").value;
+	
+	if (brukernavn=="" || passord=="") {
+		alert("Fyll inn begge feltene");
+		return false;
+		
+	}
+	else{
+		alert("Bruker opprettet")
+	}
+}
+</script>
+
+
+</body>
+
+</html>
+
+
+		
